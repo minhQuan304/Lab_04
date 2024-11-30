@@ -3,17 +3,15 @@ package hust.soict.dsai.aims.media;
 import java.util.ArrayList;
 
 public class CompactDisc extends Disc implements Playable {
-	private String artist; // Artist of the CD
-	private ArrayList<Track> tracks; // List of tracks in the CD
+	private String artist;
+	private ArrayList<Track> tracks;
 
-	// Constructor
 	public CompactDisc(String title, String category, float cost, int length, String director, String artist) {
-		super(title, category, cost, length, director); // Gọi constructor của Disc (và Media) để cấp phát id
+		super(title, category, cost, length, director);
 		this.artist = artist;
-		this.tracks = new ArrayList<>(); // Khởi tạo danh sách tracks
+		this.tracks = new ArrayList<>();
 	}
 
-	// Getter và Setter cho artist
 	public String getArtist() {
 		return artist;
 	}
@@ -22,22 +20,19 @@ public class CompactDisc extends Disc implements Playable {
 		this.artist = artist;
 	}
 
-	// Getter cho danh sách tracks
 	public ArrayList<Track> getTracks() {
 		return tracks;
 	}
 
-	// Phương thức thêm track vào CompactDisc
 	public void addTrack(Track track) {
 		if (!tracks.contains(track)) {
 			tracks.add(track);
-			System.out.println("Track " + track.getTitle() + " has been added.");
+			System.out.println("Track '" + track.getTitle() + "' has been added.");
 		} else {
-			System.out.println("Track " + track.getTitle() + " is already in the CD.");
+			System.out.println("Track '" + track.getTitle() + "' is already in the CD.");
 		}
 	}
 
-	// Phương thức xóa track khỏi CompactDisc
 	public void removeTrack(Track track) {
 		if (tracks.remove(track)) {
 			System.out.println("Track " + track.getTitle() + " has been removed.");

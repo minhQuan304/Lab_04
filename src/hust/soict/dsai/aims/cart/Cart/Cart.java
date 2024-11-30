@@ -15,8 +15,12 @@ public class Cart {
 		if (itemsOrdered.size() == MAX_NUM_ORDERED) {
 			System.out.println("The cart is full.");
 		} else {
-			itemsOrdered.add(media);
-			System.out.println("The media has been added.");
+			if (!itemsOrdered.contains(media)) {
+				itemsOrdered.add(media);
+				System.out.println("The media has been added.");
+			} else {
+				System.out.println("The media is already in the cart.");
+			}
 		}
 	}
 
@@ -26,8 +30,12 @@ public class Cart {
 				System.out.println("The cart is full.");
 				break;
 			}
-			itemsOrdered.add(media);
-			System.out.println("The media has been added.");
+			if (!itemsOrdered.contains(media)) {
+				itemsOrdered.add(media);
+				System.out.println("The media has been added.");
+			} else {
+				System.out.println("The media is already in the cart.");
+			}
 		}
 	}
 

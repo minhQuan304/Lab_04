@@ -38,4 +38,18 @@ public class Book extends Media {
 		return "Book [id=" + getId() + ", title=" + getTitle() + ", category=" + getCategory() + ", cost=" + getCost()
 				+ ", authors=" + authors + "]";
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null || getClass() != obj.getClass()) {
+			return false;
+		}
+		if (!super.equals(obj)) {
+			return false;
+		}
+		return true;
+	}
 }
