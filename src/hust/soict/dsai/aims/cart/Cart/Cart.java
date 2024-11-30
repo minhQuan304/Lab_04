@@ -104,4 +104,9 @@ public class Cart {
 			System.out.println("No media found with title: " + title);
 		}
 	}
+
+	public void clearCart() {
+		itemsOrdered.clear();
+		System.out.println("The cart has been cleared.");
+	}
 }
