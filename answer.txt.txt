@@ -1,1 +1,6 @@
 Java là một ngôn ngữ pass by value, nhưng khi làm việc với đối tượng, bạn đang truyền giá trị của tham chiếu đến đối tượng đó, chứ không phải bản sao của đối tượng. Điều này khiến cho việc thay đổi thuộc tính của đối tượng trong phương thức có thể ảnh hưởng đến đối tượng gốc.
+
+Giải thích bài 11:
+Khi thêm các đối tượng Book và DigitalVideoDisc vào ArrayList<Media>, Java lưu chúng dưới dạng Media.
+Khi gọi toString(), phương thức toString() thực tế của lớp Book hoặc DigitalVideoDisc được gọi thay vì phương thức toString() của lớp Media.
+Thông tin chi tiết của mỗi loại đối tượng được hiển thị chính xác theo cách chúng được định nghĩa trong phương thức toString() của lớp tương ứng.
