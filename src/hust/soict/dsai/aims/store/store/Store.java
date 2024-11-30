@@ -12,8 +12,12 @@ public class Store {
 	}
 
 	public void addMedia(Media media) {
-		itemsInStore.add(media);
-		System.out.println("Media '" + media.getTitle() + "' has been added to the store.");
+		if (!itemsInStore.contains(media)) {
+			itemsInStore.add(media);
+			System.out.println("Media '" + media.getTitle() + "' has been added.");
+		} else {
+			System.out.println("Media '" + media.getTitle() + "' is already in the store.");
+		}
 	}
 
 	public void removeMedia(Media media) {

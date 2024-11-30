@@ -1,32 +1,25 @@
 package hust.soict.dsai.aims.aims;
 
 import hust.soict.dsai.aims.media.CompactDisc;
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Track;
 
 public class Aims {
 	public static void main(String[] args) {
 
-		Track track1 = new Track("Track 1", 3);
-		Track track2 = new Track("Track 2", 4);
+		// Tạo 2 đối tượng Track với cùng tiêu đề và độ dài
+		Track track1 = new Track("Java Programming Track", 10);
+		Track track2 = new Track("Java Programming Track", 10);
 
-		CompactDisc cd = new CompactDisc("The Best of Music", "Music", 15.99f, 60, "Various Artists",
-				"Various Artists");
-		cd.addTrack(track1);
-		cd.addTrack(track2);
+		// Tạo một CompactDisc và thêm track vào
+		CompactDisc cd = new CompactDisc("Java Programming CD", "Programming", 50.0f, 120, "John Doe", "Artist1");
+		cd.addTrack(track1); // Được thêm vào CD
+		cd.addTrack(track2); // Không được thêm vào vì equals sẽ trả về true (cùng title và length)
 
-		DigitalVideoDisc dvd = new DigitalVideoDisc("Inception", "Sci-Fi", "Christopher Nolan", 148, 19.99f);
-
-		System.out.println("********** Play CompactDisc **********");
-		cd.play();
-
-		System.out.println("********** Play DigitalVideoDisc **********");
-		dvd.play();
-		System.out.println("********** Play Track **********");
-		track1.play();
-
-		System.out.println("\n********** Cart Contents **********");
+		// In chi tiết của CompactDisc
 		System.out.println(cd.toString());
-		System.out.println(dvd.toString());
+		System.out.println("Tracks on the CD:");
+		for (Track track : cd.getTracks()) {
+			System.out.println(track.getTitle() + " (" + track.getLength() + " mins)");
+		}
 	}
 }
