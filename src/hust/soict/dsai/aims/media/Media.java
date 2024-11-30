@@ -1,5 +1,10 @@
 package hust.soict.dsai.aims.media;
 
+import java.util.Comparator;
+
+import hust.soict.dsai.test.aim.sort.MediaComparatorByCostTitle;
+import hust.soict.dsai.test.aim.sort.MediaComparatorByTitleCost;
+
 public abstract class Media {
 	private static int nbMedia = 0; // Static counter to track the number of media (including discs)
 	private int id;
@@ -61,5 +66,8 @@ public abstract class Media {
 		Media other = (Media) obj;
 		return this.title.equalsIgnoreCase(other.title);
 	}
+
+	public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
+	public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 
 }

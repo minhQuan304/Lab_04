@@ -35,8 +35,9 @@ public class Book extends Media {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + getId() + ", title=" + getTitle() + ", category=" + getCategory() + ", cost=" + getCost()
-				+ ", authors=" + authors + "]";
+		String authorsString = authors.isEmpty() ? "No authors" : String.join(", ", authors);
+		return String.format("Book - %s - %s: %.2f $ (Authors: %s)", getTitle(), getCategory(), getCost(),
+				authorsString);
 	}
 
 	@Override
