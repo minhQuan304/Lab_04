@@ -1,25 +1,28 @@
 package hust.soict.dsai.aims.aims;
 
-import hust.soict.dsai.aims.media.CompactDisc;
-import hust.soict.dsai.aims.media.Track;
+import java.util.ArrayList;
+
+import hust.soict.dsai.aims.media.Book;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.Media;
 
 public class Aims {
 	public static void main(String[] args) {
 
-		// Tạo 2 đối tượng Track với cùng tiêu đề và độ dài
-		Track track1 = new Track("Java Programming Track", 10);
-		Track track2 = new Track("Java Programming Track", 10);
+		ArrayList<Media> mediaList = new ArrayList<>();
 
-		// Tạo một CompactDisc và thêm track vào
-		CompactDisc cd = new CompactDisc("Java Programming CD", "Programming", 50.0f, 120, "John Doe", "Artist1");
-		cd.addTrack(track1); // Được thêm vào CD
-		cd.addTrack(track2); // Không được thêm vào vì equals sẽ trả về true (cùng title và length)
+		// Thêm Book và DigitalVideoDisc vào danh sách
+		Media book1 = new Book("Clean Code", "Programming", 39.99f);
+		Media book2 = new Book("The Pragmatic Programmer", "Programming", 45.0f);
+		Media dvd = new DigitalVideoDisc("Inception", "Science Fiction", "Christopher Nolan", 148, 19.99f);
 
-		// In chi tiết của CompactDisc
-		System.out.println(cd.toString());
-		System.out.println("Tracks on the CD:");
-		for (Track track : cd.getTracks()) {
-			System.out.println(track.getTitle() + " (" + track.getLength() + " mins)");
+		mediaList.add(book1);
+		mediaList.add(book2);
+		mediaList.add(dvd);
+
+		// Duyệt qua danh sách và in thông tin của từng Media
+		for (Media media : mediaList) {
+			System.out.println(media.toString());
 		}
 	}
 }
