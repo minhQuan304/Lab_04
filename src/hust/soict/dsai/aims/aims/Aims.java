@@ -1,7 +1,6 @@
 package hust.soict.dsai.aims.aims;
 
-import java.util.ArrayList;
-
+import hust.soict.dsai.aims.cart.Cart.Cart;
 import hust.soict.dsai.aims.media.Book;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
@@ -9,20 +8,27 @@ import hust.soict.dsai.aims.media.Media;
 public class Aims {
 	public static void main(String[] args) {
 
-		ArrayList<Media> mediaList = new ArrayList<>();
+		Cart cart = new Cart();
 
-		// Thêm Book và DigitalVideoDisc vào danh sách
-		Media book1 = new Book("Clean Code", "Programming", 39.99f);
-		Media book2 = new Book("The Pragmatic Programmer", "Programming", 45.0f);
-		Media dvd = new DigitalVideoDisc("Inception", "Science Fiction", "Christopher Nolan", 148, 19.99f);
+		Media book1 = new Book("Java Programming", "Programming", 50.0f);
+		Media book2 = new Book("Python Programming", "Programming", 45.0f);
+		Media dvd = new DigitalVideoDisc("Java Programming", "Education", "Author A", 120, 30.0f);
 
-		mediaList.add(book1);
-		mediaList.add(book2);
-		mediaList.add(dvd);
+		cart.addMedia(book1);
+		cart.addMedia(book2);
+		cart.addMedia(dvd);
 
-		// Duyệt qua danh sách và in thông tin của từng Media
-		for (Media media : mediaList) {
-			System.out.println(media.toString());
-		}
+		System.out.println("Before sorting:");
+		cart.printCartDetails();
+
+		// Sắp xếp theo tiêu đề và giá
+		cart.sortByTitleCost();
+		System.out.println("\nAfter sorting by title then cost:");
+		cart.printCartDetails();
+
+		// Sắp xếp theo giá và tiêu đề
+		cart.sortByCostTitle();
+		System.out.println("\nAfter sorting by cost then title:");
+		cart.printCartDetails();
 	}
 }

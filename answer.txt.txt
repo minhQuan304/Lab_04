@@ -4,3 +4,16 @@ Giải thích bài 11:
 Khi thêm các đối tượng Book và DigitalVideoDisc vào ArrayList<Media>, Java lưu chúng dưới dạng Media.
 Khi gọi toString(), phương thức toString() thực tế của lớp Book hoặc DigitalVideoDisc được gọi thay vì phương thức toString() của lớp Media.
 Thông tin chi tiết của mỗi loại đối tượng được hiển thị chính xác theo cách chúng được định nghĩa trong phương thức toString() của lớp tương ứng.
+
+Câu hỏi bài 12:
+Lớp Media nên triển khai giao diện Comparable. Vì đây là lớp cha của tất cả các loại phương tiện (media), nên mọi đối tượng thuộc các lớp con (như Book, CompactDisc, DVD,...) sẽ được so sánh dựa trên các quy tắc được định nghĩa trong lớp này.
+
+Phương thức compareTo() trong lớp Media nên được triển khai theo quy tắc:
+Sắp xếp theo title: Sử dụng phương thức String.compareTo() để so sánh tiêu đề (alphabet).
+Nếu title giống nhau: So sánh theo giá (cost), giá cao hơn sẽ đứng trước.
+Ví dụ triển khai trong lớp Media:
+
+Không, nếu sử dụng Comparable, chỉ có thể định nghĩa một quy tắc sắp xếp mặc định trong phương thức compareTo().
+Để hỗ trợ nhiều quy tắc sắp xếp, nên sử dụng Comparator thay vì Comparable.
+
+Trong trường hợp này, bạn cần ghi đè phương thức compareTo() trong lớp DVD để triển khai quy tắc sắp xếp riêng.

@@ -1,6 +1,7 @@
 package hust.soict.dsai.aims.cart.Cart;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import hust.soict.dsai.aims.media.Media;
 
@@ -53,6 +54,16 @@ public class Cart {
 			total += media.getCost();
 		}
 		return total;
+	}
+
+	public void sortByTitleCost() {
+		Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+		System.out.println("Cart has been sorted by title then cost.");
+	}
+
+	public void sortByCostTitle() {
+		Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+		System.out.println("Cart has been sorted by cost then title.");
 	}
 
 	public void printCartDetails() {
